@@ -13,7 +13,16 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+//     $url = parse_url(getenv("DATABASE_URL"));
+
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
+
+    'default' => env('DB_CONNECTION', 'pgsql'),
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -30,6 +39,23 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
+
+// Host
+// ec2-54-243-107-66.compute-1.amazonaws.com
+// Database
+// d3rdu1uade4cgo
+// User
+// gblncdnpeyalmp
+// Port
+// 5432
+// Password
+// f6790882e739216710f6fd7aff3c7e85dbee83be7aac8fce87787f67085c8996
+// URI
+// postgres://gblncdnpeyalmp:f6790882e739216710f6fd7aff3c7e85dbee83be7aac8fce87787f67085c8996@ec2-54-243-107-66.compute-1.amazonaws.com:5432/d3rdu1uade4cgoHeroku CLI
+// heroku pg:psql postgresql-dimensional-49271 --app clickersone
+
+
+
 
     'connections' => [
 
@@ -56,11 +82,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'ec2-54-243-107-66.compute-1.amazonaws.com'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'd3rdu1uade4cgo'),
+            'username' => env('DB_USERNAME', 'gblncdnpeyalmp'),
+            'password' => env('DB_PASSWORD', 'f6790882e739216710f6fd7aff3c7e85dbee83be7aac8fce87787f67085c8996'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
