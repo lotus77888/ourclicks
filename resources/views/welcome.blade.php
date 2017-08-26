@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <title>Laravel</title>
 
@@ -83,11 +84,23 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                   <form action ="/create"  method = "post" enctype="multipart/form-data">
+                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+                        <input type="file" name="userimage">
+                    <br>
+                    <input type="submit" name="" value = "Add Image">
+                    </form>
+                </div>
+                <div >
+                <h2>Images Display</h2>
+              
+                @foreach ($data as $user)
+               <p> <img src="{{ URL::to('/') }}/uploads/{{ $user->file_name }}" style="height: 15px;width: 15px;" alt="{{ $user->file_name }}" />
+               </p>
+                    <!-- <p>This is user {{ $user->file_name }}</p> -->
+                @endforeach
+
                 </div>
             </div>
         </div>
